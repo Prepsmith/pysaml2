@@ -61,6 +61,8 @@ class Saml2Client(Base):
         :return: session id and AuthnRequest info
         """
 
+        kwargs["nsprefix"] = {'saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+                              'samlp': 'urn:oasis:names:tc:SAML:2.0:protocol'}
         reqid, negotiated_binding, info = \
             self.prepare_for_negotiated_authenticate(
                 entityid=entityid,
