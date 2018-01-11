@@ -272,7 +272,8 @@ class StatusResponse(object):
         self.require_response_signature = False
         self.not_signed = False
         self.asynchop = asynchop
-        self.do_not_verify = False
+        #self.do_not_verify = False
+        self.do_not_verify = True
         self.conv_info = conv_info or {}
 
     def _clear(self):
@@ -1086,8 +1087,8 @@ class AuthnResponse(StatusResponse):
     def verify_recipient(self, recipient):
         """
         Verify that I'm the recipient of the assertion
-        
-        :param recipient: A URI specifying the entity or location to which an 
+
+        :param recipient: A URI specifying the entity or location to which an
             attesting entity can present the assertion.
         :return: True/False
         """
